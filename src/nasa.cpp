@@ -48,6 +48,7 @@ std::size_t curlWriteCallback(void *dataContents, const std::size_t size, const 
     return realSize;
 }
 
+//apod fetch
 void curlNasaApod() {   
     //grab api key
     std::string key{};
@@ -97,11 +98,17 @@ void curlNasaApod() {
         if(res != CURLE_OK) {
             std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << '\n' << std::flush;
         } else {
-            //parsing json string from memory 
-            auto jsonParse = nlohmann::json::parse(chunk.memory); //parse chars from memory as json string value
+            //parse chars from memory as json string value
+            auto jsonParse = nlohmann::json::parse(chunk.memory);
+            
+            //create a json object from parsed json string
+            nlohmann::json jsonObject = jsonParse; 
 
-            nlohmann::json jsonObject = jsonParse; //create a json object from parsed json string
+            //output parsed json to file
+            std::ofstream apod("./src/json-out/apod.json");
+            apod << jsonObject.dump(4);
 
+            //output parsed json to terminal
             std::cout << jsonObject.dump(4) << '\n' << std::flush; //output prettified parsed json string
         }
 
@@ -119,6 +126,7 @@ void curlNasaApod() {
     backMenu();
 }
 
+//asteroid neow feed fetch
 void curlNasaAsteroidsNeoWFeed() {
     std::string key{};
 
@@ -176,6 +184,11 @@ void curlNasaAsteroidsNeoWFeed() {
 
             nlohmann::json jsonObject = jsonParse;
 
+            //parsed json to file
+            std::ofstream asteroidFeed("./src/json-out/asteroidfeed.json");
+            asteroidFeed << jsonObject.dump(4);
+
+            //parsed json to terminal
             std::cout << jsonObject.dump(4) << '\n' << std::flush;
         }
     }
