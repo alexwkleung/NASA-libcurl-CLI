@@ -185,8 +185,8 @@ void curlNasaAsteroidsNeoWFeed() {
             nlohmann::json jsonObject = jsonParse;
 
             //parsed json to file
-            std::ofstream asteroidFeed("./src/json-out/asteroidfeed.json");
-            asteroidFeed << jsonObject.dump(4);
+            std::ofstream neoFeed("./src/json-out/neofeed.json");
+            neoFeed << jsonObject.dump(4);
 
             //parsed json to terminal
             std::cout << jsonObject.dump(4) << '\n' << std::flush;
@@ -197,6 +197,78 @@ void curlNasaAsteroidsNeoWFeed() {
 
     free(chunk.memory);
     
+    curl_global_cleanup();
+
+    backMenu();
+}
+
+//donki sep fetch
+void curlNasaDonkiSep() {
+    std::string key{};
+
+    std::ifstream apiKey("./src/key.txt");
+
+    std::getline(apiKey, key);
+
+    std::string initUrl = "https://api.nasa.gov/DONKI/SEP?";
+    std::string startDate = "startDate=";
+    std::string startDateVal{};
+    std::string endDate = "&endDate=";
+    std::string endDateVal{};
+    std::string initApiKey = "&api_key=";
+
+    std::cout << "start_date (YYYY-MM-DD):" << startDateVal << "";
+    std::cin.clear();
+    std::cin >> startDateVal;
+
+    std::cout << "end_date (YYYY-MM-DD):" << endDateVal << "";
+    std::cin.clear();
+    std::cin >> endDateVal;
+
+    std::string url = initUrl + startDate + startDateVal + endDate + endDateVal + initApiKey + key;
+
+    CURL *curl;
+    CURLcode res;
+
+    MemoryStruct chunk;
+
+    chunk.memory = static_cast<char*>(malloc(1));
+    chunk.size = 0;
+
+    curl_global_init(CURL_GLOBAL_ALL);
+
+    curl = curl_easy_init();
+
+    if(curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteCallback);
+
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &chunk);
+
+        res = curl_easy_perform(curl);
+
+        if(res != CURLE_OK) {
+            std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << '\n' << std::flush;
+        } else {
+            auto jsonParse = nlohmann::json::parse(chunk.memory);
+
+            nlohmann::json jsonObject = jsonParse;
+
+            std::ofstream donkiSep("./src/json-out/donkisep.json");
+
+            donkiSep << jsonObject.dump(4);
+
+            std::cout << jsonObject.dump(4) << '\n' << std::flush;
+        }
+    }
+
+    curl_easy_cleanup(curl);
+
+    free(chunk.memory);
+
     curl_global_cleanup();
 
     backMenu();
