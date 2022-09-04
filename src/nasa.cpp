@@ -48,20 +48,22 @@ std::size_t curlWriteCallback(void *dataContents, const std::size_t size, const 
     return realSize;
 }
 
-void curlNasaApod() {
+void curlNasaApod() {   
+    //grab api key
     std::string key{};
 
     std::ifstream apiKey("./src/key.txt");
 
     std::getline(apiKey, key);
     
-    //concatenated url
+    //create concatenated url
     std::string url = "https://api.nasa.gov/planetary/apod?api_key=" + key;
 
+    //curl objects
     CURL *curl;
     CURLcode res;
     
-    //create an object of MemoryStruct
+    //MemoryStruct object
     MemoryStruct chunk;
 
     chunk.memory = static_cast<char*>(malloc(1)); //byte allocation size will increase via realloc() of the char ptr
@@ -132,15 +134,16 @@ void curlNasaAsteroidsNeoWFeed() {
     std::string endDateVal{};
     std::string initApiKey = "&api_key=";
 
-    //take input
+    //take input (start_date)
     std::cout << "start_date (YYYY-MM-DD): " << startDateVal;
     std::cin.clear();
     std::cin >> startDateVal;
+
+    //take input (end_date)
     std::cout << "end_date (YYYY-MM-DD): " << endDateVal;
     std::cin.clear();
     std::cin >> endDateVal;
 
-    //create concatenated url
     std::string url = initUrl + startDate + startDateVal + endDate + endDateVal + initApiKey + key; 
 
     CURL *curl;

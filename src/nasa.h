@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef NASA_H
+#define NASA_H
 
 #include <cstdlib>
 

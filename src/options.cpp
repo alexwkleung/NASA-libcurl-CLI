@@ -1,6 +1,6 @@
 #include "include/termstylist.h" //termstylist
 #include "options.h"
-#include "apod.h"
+#include "nasa.h"
 #include <iostream>
 #include <string>
 
