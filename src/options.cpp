@@ -14,22 +14,29 @@ void options() {
     
     std::string option{};
     
+    //take input for option
     std::cin >> option;
 
+    //apod
     if(option == "apod") {
         curlNasaApod();
     }
 
+    //asteroids
     if(option == "asteroids") {
         curlNasaAsteroidsNeoWFeed();
     }
 
+    //exit
     if(option == "exit") {
         std::cout << termstylist::FG_LightGreen << "Exiting..." << termstylist::FG_Default << '\n';
         exit(0);
     }
 
+    //check input
     if(option != "apod" || option != "asteroids" || option != "exit") {
+        std::cout << termstylist::ATTRS_Clear << "";
+        
         std::cout << termstylist::FG_LightRed << "Invalid input. Try again." << '\n';
 
         options();

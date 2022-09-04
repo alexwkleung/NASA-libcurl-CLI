@@ -6,13 +6,13 @@
 void backMenu() {
     std::string backMenuOpt{};
 
+    std::cout << '\n' << termstylist::FG_White << "Type back to go back to the main menu." << backMenuOpt << termstylist::FG_Default << '\n';
+
     std::cin >> backMenuOpt;
-    
-    if(backMenuOpt == "menu") {
-        std::cout << termstylist::FG_White << "Type menu to go back." << termstylist::FG_Default << '\n';
-        
+
+    if(backMenuOpt == "back") {
         options();
-    } else if(backMenuOpt != "menu") {
+    } else if(backMenuOpt != "back") {
         std::cin.clear();
 
         std::cout << termstylist::FG_LightRed << "Invalid input. Try again." << termstylist::FG_Default << '\n';
