@@ -1,0 +1,5 @@
+.DS_STORE
+.vscode/
+*.dSYM/
+*.o
+src/key.txt
