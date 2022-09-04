@@ -217,11 +217,11 @@ void curlNasaDonkiSep() {
     std::string endDateVal{};
     std::string initApiKey = "&api_key=";
 
-    std::cout << "start_date (YYYY-MM-DD):" << startDateVal << "";
+    std::cout << "start_date (YYYY-MM-DD): " << startDateVal << "";
     std::cin.clear();
     std::cin >> startDateVal;
 
-    std::cout << "end_date (YYYY-MM-DD):" << endDateVal << "";
+    std::cout << "end_date (YYYY-MM-DD): " << endDateVal << "";
     std::cin.clear();
     std::cin >> endDateVal;
 
