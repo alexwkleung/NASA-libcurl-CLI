@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
     std::vector<std::string> args = {argv + 1, argv + argc};
 
     //iterate over vector using iterator and compare each index to passed argument
-    for(std::vector<std::string>::iterator it = args.begin(); it != args.end(); ++it) {
+    for(std::vector<std::string>::iterator it = args.begin(); it != args.end(); it++) {
         if(*it == "--apod") {
             curlNasaApod();
         } else if(*it == "--neo-feed") {
@@ -26,6 +26,6 @@ int main(int argc, char **argv) {
             return 0;
         }
     }
-    
+
     return 0;
 }
