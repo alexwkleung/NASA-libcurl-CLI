@@ -14,6 +14,12 @@ Clone the repository.
 git clone <SSH/HTTPS URL>
 ```
 
+Change directory.
+
+```bash
+cd NASA-libcurl-CLI
+```
+
 Install cURL.
 
 ```bash
@@ -53,6 +59,19 @@ curl-config --libs
 # makefile 
 
 LDFLAGS = <library directory from curl-config --libs>
+```
+
+Create a text file to hold NASA API key. Get your key [here](https://api.nasa.gov/).
+
+```bash
+# this directory (src/key.txt) is gitignored
+touch src/key.txt
+```
+
+Add key to text file
+
+```txt
+<your NASA API key>
 ```
 
 Build program.
