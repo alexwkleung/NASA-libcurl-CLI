@@ -135,4 +135,4 @@ Here are the steps that will be executed in order:
 
 # Issues
 
-DONKI Solar Engergetic Particle (SEP) API may have problems fetching data.
+DONKI Solar Energetic Particle (SEP) API may have problems fetching data.
