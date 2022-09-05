@@ -13,4 +13,6 @@ void curlNasaAsteroidsNeoWFeed();
 
 void curlNasaDonkiSep();
 
+void curlNasaInsight();
+
 #endif

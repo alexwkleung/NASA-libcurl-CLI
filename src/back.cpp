@@ -6,7 +6,7 @@
 void backMenu() {
     std::string backMenuOpt{};
 
-    std::cout << '\n' << termstylist::FG_White << "Type back to go back to the main menu." << backMenuOpt << termstylist::FG_Default << '\n';
+    std::cout << '\n' << termstylist::FG_White << "Type " << termstylist::FG_Yellow << "back" << termstylist::FG_Default << " to go back to the main menu." << backMenuOpt << '\n';
 
     std::cin >> backMenuOpt;
 

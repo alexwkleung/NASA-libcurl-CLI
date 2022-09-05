@@ -273,3 +273,63 @@ void curlNasaDonkiSep() {
 
     backMenu();
 }
+
+void curlNasaInsight() {
+    std::string key{};
+
+    std::ifstream apiKey("./src/key.txt");
+
+    std::getline(apiKey, key);
+
+    std::string initUrl = "https://api.nasa.gov/insight_weather/?";
+    std::string initApiKey = "api_key=";
+    std::string feedType = "&feedtype=json&ver=1.0";
+
+    std::string url = initUrl + initApiKey + key + feedType;
+    
+    CURL *curl;
+    CURLcode res;
+
+    MemoryStruct chunk;
+
+    chunk.memory = static_cast<char*>(malloc(1));
+    chunk.size = 0;
+
+    curl_global_init(CURL_GLOBAL_ALL);
+
+    curl = curl_easy_init();
+
+    if(curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteCallback);
+
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &chunk);
+
+        res = curl_easy_perform(curl);
+
+        if(res != CURLE_OK) {
+            std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << '\n' << std::flush;
+        } else {
+            auto jsonParse = nlohmann::json::parse(chunk.memory);
+
+            nlohmann::json jsonObject = jsonParse;
+
+            std::ofstream insight("./src/json-out/insight.json");
+
+            insight << jsonObject.dump(4);
+
+            std::cout << jsonObject.dump(4) << '\n' << std::flush;
+        }
+    }
+    
+    curl_easy_cleanup(curl);
+
+    free(chunk.memory);
+
+    curl_global_cleanup();
+
+    backMenu();
+}
