@@ -57,7 +57,7 @@ curl-config --libs
 LDFLAGS = <library directory from curl-config --libs>
 ```
 
-Build program
+Build program.
 
 ```bash
 make build
@@ -73,7 +73,7 @@ Typing `donki-sep` will call the function for the DONKI Solar Energetic Particle
 
 Typing `insight` will call the function for the InSight: Mars Weather Service API.
 
-When you enter an option, some will ask you to enter required fields to specify the API query before it fetches the data string so that nlohmann json can parse it. For the ones that don't, it will go straight to fetching the data string.
+When you enter an option, you might be asked to enter required fields to specify the API query before it fetches the JSON data string so that nlohmann json can parse it. For the ones that don't, it will go straight to fetching the JSON data string.
 
 Here are the steps that will be executed in order: 
 
@@ -81,6 +81,6 @@ Here are the steps that will be executed in order:
 
 2) Enter the required fields to specifiy the API query if applicable.
 
-3) The JSON string will be fetched by libcurl, nlohmann json will parse that string, and then prettifies the formatting for viewing pleasure. 
+3) The JSON data string will be fetched by libcurl, then nlohmann json will parse that string and prettify the formatting for viewing pleasure. 
 
 4) The output of the prettified JSON will be present in the `json-out` directory, with file containing the naming scheme of `<api name>.json`. The prettified JSON is also outputted to the terminal.
