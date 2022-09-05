@@ -1,3 +1,4 @@
+#include "include/termstylist.h"
 #include "nasa.h"
 #include "options.h"
 #include <iostream>
@@ -31,6 +32,8 @@ int main(int argc, char **argv) {
         } else if(*it == "--options") {
             options();
         } else {
+            std::cerr << termstylist::FG_LightRed << "Invalid input." << '\n' << termstylist::FG_LightGreen << "Exiting..." << termstylist::FG_Default << '\n'; 
+            
             return 0;
         }
     }

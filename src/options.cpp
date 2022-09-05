@@ -51,7 +51,7 @@ void options() {
     if(option != "apod" || option != "neo-feed" || option != "donki-sep" || option != "exit") {
         std::cout << termstylist::ATTRS_Clear << "";
 
-        std::cout << termstylist::FG_LightRed << "Invalid input. Try again." << '\n';
+        std::cerr << termstylist::FG_LightRed << "Invalid input. Try again." << '\n';
 
         options();
     }
