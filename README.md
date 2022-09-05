@@ -68,7 +68,7 @@ Create a text file to hold NASA API key. Get your key [here](https://api.nasa.go
 touch src/key.txt
 ```
 
-Add key to text file
+Add key to text file.
 
 ```txt
 <your NASA API key>
@@ -94,7 +94,7 @@ When you enter an option, you might be asked to enter required fields to specify
 
 Here are the steps that will be executed in order: 
 
-1) Choose an option (apod, neo-feed, donki-sep, insight, etc)
+1) Choose an option (apod, neo-feed, donki-sep, insight, etc).
 
 2) Enter the required fields to specifiy the API query if applicable.
 
