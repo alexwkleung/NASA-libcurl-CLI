@@ -65,13 +65,13 @@ make build
 
 # Options Menu
 
-Typing `apod` will call the function for the Astronomy Picture of the day (APOD) API.
+Typing `apod` will call the function to fetch the Astronomy Picture of the day (APOD) API.
 
-Typing `neo-feed` will call the function for the Asteroids - NeoW Feed (Neo Feed) API.
+Typing `neo-feed` will call the function to fetch the Asteroids - NeoW Feed (Neo Feed) API.
 
-Typing `donki-sep` will call the function for the DONKI Solar Energetic Particle (SEP) API.
+Typing `donki-sep` will call the function to fetch the DONKI Solar Energetic Particle (SEP) API.
 
-Typing `insight` will call the function for the InSight: Mars Weather Service API.
+Typing `insight` will call the function to fetch the InSight: Mars Weather Service API.
 
 When you enter an option, you might be asked to enter required fields to specify the API query before it fetches the JSON data string so that nlohmann json can parse it. For the ones that don't, it will go straight to fetching the JSON data string.
 
