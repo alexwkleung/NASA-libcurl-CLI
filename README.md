@@ -2,7 +2,7 @@
 
 ![cli.png](/img/cli.png)
 
-An interactive CLI program that fetches [NASA API's](https://api.nasa.gov/) and outputs them in prettified JSON format (`.json` file and in terminal).
+An interactive CLI program that fetches [NASA API's](https://api.nasa.gov/) and outputs them in prettified JSON format.
 
 Written in C++ using the [libcurl API](https://curl.se/libcurl/) and [nlohmann json parser](https://github.com/nlohmann/json). My library [TermStylist](https://github.com/alexwkleung/TermStylist) was also used for terminal colours.
 
