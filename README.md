@@ -6,12 +6,60 @@ Written in C++ using the [libcurl API](https://curl.se/libcurl/) and [nlohmann j
 
 WIP.
 
-1. Astronomy Picture of the day (APOD)
-2. Asteroids - NeoW Feed (Neo Feed)
-3. DONKI Solar Energetic Particle (SEP)
-4. InSight: Mars Weather Service API
+# Installation 
 
-# Installation
+Clone the repository.
+
+```bash
+git clone <SSH/HTTPS URL>
+```
+
+Install cURL.
+
+```bash
+# homebrew
+brew install curl
+
+# apt
+sudo apt install curl
+
+# you will probably need to add cURL to your path to override system cURL. 
+# this should be specified by your package manager after installation.
+```
+
+Change `CPPFLAGS` value to your cURL include directory if necessary.
+
+```bash 
+# check library include directory
+
+curl-config --cflags
+```
+
+```make
+# makefile 
+
+CPPFLAGS = -std=c++17 -Wall -Wextra -g <include directory>
+```
+
+Change `LDFLAGS` value to your cURL lib directory if necessary.
+
+```bash
+# check library link directory
+
+curl-config --libs
+```
+
+```make
+# makefile 
+
+LDFLAGS = <library directory from curl-config --libs>
+```
+
+Build program
+
+```bash
+make build
+```
 
 # Options Menu
 
