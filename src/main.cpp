@@ -4,6 +4,14 @@
 #include <vector>
 #include <string>
 
+void curlNasaApod();
+
+void curlNasaAsteroidsNeoWFeed();
+
+void curlNasaDonkiSep();
+
+void curlNasaInsight();
+
 void options();
 
 int main(int argc, char **argv) {

@@ -3,6 +3,8 @@
 #include "include/termstylist.h"
 #include <iostream>
 
+void options();
+
 void backMenu() {
     std::string backMenuOpt{};
 
