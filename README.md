@@ -6,6 +6,16 @@ An interactive CLI program that fetches [NASA API's](https://api.nasa.gov/) and 
 
 Written in C++ using the [libcurl API](https://curl.se/libcurl/) and [nlohmann json parser](https://github.com/nlohmann/json). My library [TermStylist](https://github.com/alexwkleung/TermStylist) was also used for terminal colours.
 
+**References:**
+
+1. https://curl.se/libcurl/c/getinmemory.html
+
+2. https://curl.se/libcurl/c/simple.html
+
+3. https://json.nlohmann.me/api/basic_json/parse/
+
+4. https://json.nlohmann.me/api/basic_json/dump/
+
 # Installation 
 
 Clone the repository.
