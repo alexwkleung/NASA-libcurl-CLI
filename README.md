@@ -1,6 +1,7 @@
 # NASA-libcurl-CLI
 
-![cli.png](/img/cli.png)
+![example](/img/example.png)
+![example2](/img/example2.png)
 
 An interactive CLI program that fetches [NASA API's](https://api.nasa.gov/) and outputs them in prettified JSON format.
 
@@ -90,7 +91,28 @@ Build program.
 make build
 ```
 
-# Options Menu
+Run command line argument. 
+
+```bash
+./src/a.o --<command line arg>
+```
+
+Clean up
+# Options
+
+**Command line arguments:**
+
+`--apod` will call the function to fetch the Astronomy Picture of the day (APOD) API.
+
+`--neo-feed` will call the function to fetch the Asteroids - NeoW Feed (Neo Feed) API.
+
+`donki-sep` will call the function to fetch the DONKI Solar Energetic Particle (SEP) API.
+
+`--insight` will call the function to fetch the InSight: Mars Weather Service API.
+
+`--options` will call the function to take you to the options menu (selection prompt).
+
+**Options menu (selection prompt):**
 
 Typing `apod` will call the function to fetch the Astronomy Picture of the day (APOD) API.
 
@@ -100,7 +122,7 @@ Typing `donki-sep` will call the function to fetch the DONKI Solar Energetic Par
 
 Typing `insight` will call the function to fetch the InSight: Mars Weather Service API.
 
-When you enter an option, you might be asked to enter required fields to specify the API query before it fetches the JSON data string so that nlohmann json can parse it. For the ones that don't, it will go straight to fetching the JSON data string.
+When you enter an option from either the menu or command line arguments, you might be asked to enter required fields to specify the API query before it fetches the JSON data string so that nlohmann json can parse it. For the ones that don't, it will go straight to fetching the JSON data string.
 
 Here are the steps that will be executed in order: 
 
@@ -111,3 +133,7 @@ Here are the steps that will be executed in order:
 3) The JSON data string will be fetched by libcurl, then nlohmann json will parse that string and prettify the formatting for viewing pleasure. 
 
 4) The output of the prettified JSON will be present in the `json-out` directory, with file containing the naming scheme of `<api name>.json`. The prettified JSON is also outputted to the terminal.
+
+# Issues
+
+DONKI Solar Engergetic Particle (SEP) API may have problems fetching data.

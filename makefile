@@ -7,4 +7,8 @@ OUT = src/a.o
 
 .PHONY: build
 build:
-	${CXX} ${CPPFLAGS} ${LDFLAGS} ${VAR} -o ${OUT} && ./${OUT} && rm ${OUT}
+	${CXX} ${CPPFLAGS} ${LDFLAGS} ${VAR} -o ${OUT} 
+
+.PHONY: clean
+clean:
+	rm ${OUT}
