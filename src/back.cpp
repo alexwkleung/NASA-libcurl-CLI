@@ -1,6 +1,6 @@
+#include "include/termstylist.h" //termstylist
 #include "back.h"
 #include "options.h"
-#include "include/termstylist.h"
 #include <iostream>
 
 void options();
