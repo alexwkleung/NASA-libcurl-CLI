@@ -97,7 +97,6 @@ Run command line argument.
 ./src/a.o --<command line arg>
 ```
 
-Clean up
 # Options
 
 **Command line arguments:**
