@@ -72,14 +72,14 @@ curl-config --libs
 LDFLAGS = <library directory from curl-config --libs>
 ```
 
-Create a text file to hold NASA API key. Get your key [here](https://api.nasa.gov/).
+Create a text file to hold the NASA API key. Get your key [here](https://api.nasa.gov/).
 
 ```bash
 # this directory (src/key.txt) is gitignored
 touch src/key.txt
 ```
 
-Add key to text file.
+Add key to the text file.
 
 ```txt
 <your NASA API key>
@@ -91,7 +91,7 @@ Build program.
 make build
 ```
 
-Run command line argument. 
+Run a command line argument. 
 
 ```bash
 ./src/a.o --<command line arg>
